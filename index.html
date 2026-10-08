@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>CineFlix - Movies & Entertainment</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+</head>
+
+<body>
+
+    <!-- ================= NAVBAR ================= -->
+
+    <header class="navbar">
+
+        <div class="logo">
+            <span>CINE</span>FLIX
+        </div>
+
+        <nav class="nav-links">
+            <a href="#home">Home</a>
+            <a href="#movies">Movies</a>
+            <a href="#trending">Trending</a>
+            <a href="#mylist">My List</a>
+        </nav>
+
+        <div class="nav-right">
+
+            <button class="search-toggle" id="searchToggle">
+                🔍
+            </button>
+
+            <div class="search-box" id="searchBox">
+                <input
+                    type="text"
+                    id="searchInput"
+                    placeholder="Search movies..."
+                >
+                <button id="searchBtn">Search</button>
+            </div>
+
+            <button class="profile-btn">
+                👤
+            </button>
+
+        </div>
+
+    </header>
+
+
+    <!-- ================= HERO ================= -->
+
+    <section class="hero" id="home">
+
+        <div class="hero-content">
+
+            <p class="hero-label">
+                #1 MOVIE DISCOVERY PLATFORM
+            </p>
+
+            <h1>
+                Discover Your<br>
+                <span>Next Favorite</span> Movie
+            </h1>
+
+            <p class="hero-description">
+                Explore thousands of movies, discover trending titles,
+                watch trailers and build your personal watchlist.
+            </p>
+
+            <div class="hero-buttons">
+
+                <button class="primary-btn" id="exploreBtn">
+                    ▶ Explore Movies
+                </button>
+
+                <button class="secondary-btn" id="infoBtn">
+                    ⓘ More Info
+                </button>
+
+            </div>
+
+        </div>
+
+        <div class="hero-overlay"></div>
+
+    </section>
+
+
+    <!-- ================= SEARCH RESULTS ================= -->
+
+    <section class="section search-section" id="searchResultsSection">
+
+        <div class="section-header">
+
+            <div>
+                <p class="small-title">RESULTS</p>
+                <h2 id="searchTitle">Search Results</h2>
+            </div>
+
+        </div>
+
+        <div class="movie-grid" id="searchResults"></div>
+
+    </section>
+
+
+    <!-- ================= TRENDING ================= -->
+
+    <section class="section" id="trending">
+
+        <div class="section-header">
+
+            <div>
+                <p class="small-title">WHAT'S HOT</p>
+                <h2>Trending Now</h2>
+            </div>
+
+            <div class="slider-buttons">
+                <button id="trendPrev">‹</button>
+                <button id="trendNext">›</button>
+            </div>
+
+        </div>
+
+        <div class="movie-slider" id="trendingMovies"></div>
+
+    </section>
+
+
+    <!-- ================= POPULAR ================= -->
+
+    <section class="section" id="movies">
+
+        <div class="section-header">
+
+            <div>
+                <p class="small-title">EXPLORE</p>
+                <h2>Popular Movies</h2>
+            </div>
+
+        </div>
+
+        <div class="movie-grid" id="popularMovies"></div>
+
+    </section>
+
+
+    <!-- ================= GENRES ================= -->
+
+    <section class="section">
+
+        <div class="section-header">
+
+            <div>
+                <p class="small-title">BROWSE</p>
+                <h2>Explore Genres</h2>
+            </div>
+
+        </div>
+
+        <div class="genre-container">
+
+            <button class="genre-btn" data-genre="28">Action</button>
+            <button class="genre-btn" data-genre="35">Comedy</button>
+            <button class="genre-btn" data-genre="18">Drama</button>
+            <button class="genre-btn" data-genre="27">Horror</button>
+            <button class="genre-btn" data-genre="878">Sci-Fi</button>
+            <button class="genre-btn" data-genre="10749">Romance</button>
+            <button class="genre-btn" data-genre="53">Thriller</button>
+            <button class="genre-btn" data-genre="16">Animation</button>
+
+        </div>
+
+        <div class="movie-grid" id="genreMovies"></div>
+
+    </section>
+
+
+    <!-- ================= MY LIST ================= -->
+
+    <section class="section" id="mylist">
+
+        <div class="section-header">
+
+            <div>
+                <p class="small-title">YOUR COLLECTION</p>
+                <h2>My List</h2>
+            </div>
+
+        </div>
+
+        <div class="movie-grid" id="myListMovies"></div>
+
+        <p class="empty-list" id="emptyList">
+            Your watchlist is empty.
+            Add movies using the + button.
+        </p>
+
+    </section>
+
+
+    <!-- ================= MOVIE MODAL ================= -->
+
+    <div class="modal" id="movieModal">
+
+        <div class="modal-content">
+
+            <button class="close-modal" id="closeModal">
+                ×
+            </button>
+
+            <div class="modal-backdrop" id="modalBackdrop"></div>
+
+            <div class="modal-info">
+
+                <img
+                    id="modalPoster"
+                    src=""
+                    alt="Movie Poster"
+                >
+
+                <div class="modal-details">
+
+                    <p class="modal-label">
+                        MOVIE
+                    </p>
+
+                    <h2 id="modalTitle">
+                        Movie Title
+                    </h2>
+
+                    <div class="movie-meta">
+
+                        <span id="modalRating">
+                            ⭐ 0.0
+                        </span>
+
+                        <span id="modalYear">
+                            2026
+                        </span>
+
+                        <span id="modalLanguage">
+                            EN
+                        </span>
+
+                    </div>
+
+                    <p id="modalOverview">
+                        Movie description.
+                    </p>
+
+                    <div class="modal-buttons">
+
+                        <button
+                            class="primary-btn"
+                            id="trailerBtn"
+                        >
+                            ▶ Watch Trailer
+                        </button>
+
+                        <button
+                            class="secondary-btn"
+                            id="modalListBtn"
+                        >
+                            + My List
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="trailer-container" id="trailerContainer">
+
+                <iframe
+                    id="trailerFrame"
+                    src=""
+                    title="Movie Trailer"
+                    allowfullscreen
+                ></iframe>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer>
+
+        <div class="footer-logo">
+            <span>CINE</span>FLIX
+        </div>
+
+        <p>
+            Discover movies. Watch trailers. Build your collection.
+        </p>
+
+        <div class="footer-links">
+
+            <a href="#">Privacy</a>
+            <a href="#">Terms</a>
+            <a href="#">Contact</a>
+
+        </div>
+
+        <p class="copyright">
+            © 2026 CineFlix. All rights reserved.
+        </p>
+
+    </footer>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>
